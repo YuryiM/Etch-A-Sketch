@@ -8,11 +8,7 @@ let brushOn = false;
 
 let color = document.getElementById('color').value;
 
-let colorPicker = document.getElementById('color-picker');
-
-document.getElementById('color-picker').addEventListener('click', () => {
-    document.getElementById('color').click();
-});
+let colorPicker = document.getElementById('color-pick');
 
 document.getElementById('color').addEventListener('input', () => {
     color = document.getElementById('color').value;
@@ -40,9 +36,6 @@ function generateGrid(){
     }
 }
 
-document.getElementById('color-picker', () => {
-
-});
 
 // Turns on brush if mouse held pressed
 sketchbox.addEventListener('mousedown', () => {
