@@ -12,13 +12,15 @@
         <div id="title">Etch-a-Sketch</div>
         <div id="sketch-controls">
             <div id="control-menu">
-                <button id="color-picker"></button>
+                <div id="color-pick">
+                    <input type="color" id="color" value="#000000">
+                </div>
                 <button id="color-mode">Color Mode</button>
                 <button id="rainbow-mode-toggle">Rainbow Toggle</button>
                 <button id="eraser-toggle">Eraser Toggle</button>
                 <button id="clear-button">Clear Canvas</button>
                 <output id="canvas-size">16 x 16</output>
-                <input type="range" min="1" max="64" class="slider" id="size-slider">
+                <input type="range" min="2" max="64" class="slider" id="size-slider" value="16">
             </div>
             <div id="sketchbox"></div>
         </div>

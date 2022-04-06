@@ -1,11 +1,23 @@
 let slider = document.getElementById('size-slider');
-slider.defaultValue = 16;
 
 let sketchbox = document.getElementById('sketchbox');
 
 let pixels = document.getElementsByClassName('pixel');
 
 let brushOn = false;
+
+let color = document.getElementById('color').value;
+
+let colorPicker = document.getElementById('color-picker');
+
+document.getElementById('color-picker').addEventListener('click', () => {
+    document.getElementById('color').click();
+});
+
+document.getElementById('color').addEventListener('input', () => {
+    color = document.getElementById('color').value;
+    colorPicker.style.backgroundColor = color;
+});
 
 function generateGrid(){
     // Sets grid dimension based on slider val
@@ -21,13 +33,16 @@ function generateGrid(){
             row.appendChild(pixel);
             // When user mouses over pixel AND has their mouse down on canvas, set pixel to  black
             pixel.addEventListener('mouseover', () => {
-                if(brushOn) pixel.style.backgroundColor = '#000000';
+                if(brushOn) pixel.style.backgroundColor = color;
             });
         }
         sketchbox.appendChild(row);
     }
 }
 
+document.getElementById('color-picker', () => {
+
+});
 
 // Turns on brush if mouse held pressed
 sketchbox.addEventListener('mousedown', () => {
@@ -38,22 +53,12 @@ sketchbox.addEventListener('mouseup', () => {
     brushOn = false;
 });
 
-
-
 function clearGrid(){
     // While sketchbox still has children, remove them
     while(sketchbox.firstChild){
         sketchbox.removeChild(sketchbox.lastChild);
     }
 }
-
-Array.prototype.forEach.call(pixels, (pixel)=> {
-
-    console.log('HEY111');
-    
-}, false);
-
-
 
 slider.addEventListener('input', () => {
     // Updates canvas size when slider changed
