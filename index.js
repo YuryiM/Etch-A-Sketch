@@ -15,6 +15,13 @@ document.getElementById('color').addEventListener('input', () => {
     colorPicker.style.backgroundColor = color;
 });
 
+// Clears canvas
+document.getElementById('clear-button').addEventListener('click', () => {
+    Array.prototype.forEach.call(pixels, (pixel) => {
+        pixel.style.backgroundColor = 'white';
+    });
+});
+
 function generateGrid(){
     // Sets grid dimension based on slider val
     dimension = slider.value;
