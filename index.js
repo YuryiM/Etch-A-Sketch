@@ -18,8 +18,6 @@ let rainbowMode = false;
 
 let color = document.getElementById('color').value;
 
-let rainbowRed, rainbowGreen, rainbowBlue = 0;
-
 const rainbowColors = ['#ff0000', '#ffa500', '#ffff00', '#008000', '#0000ff', '#4b0082', '#ee82ee'];
 
 let r = 0;
