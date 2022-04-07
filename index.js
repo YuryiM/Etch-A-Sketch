@@ -10,6 +10,12 @@ let color = document.getElementById('color').value;
 
 let colorPicker = document.getElementById('color-pick');
 
+let rainbowMode = false;
+
+let rainbowRed, rainbowGreen, rainbowBlue = 0;
+
+let eraser = document.getElementById('eraser-toggle');
+
 document.getElementById('color').addEventListener('input', () => {
     color = document.getElementById('color').value;
     colorPicker.style.backgroundColor = color;
@@ -20,6 +26,18 @@ document.getElementById('clear-button').addEventListener('click', () => {
     Array.prototype.forEach.call(pixels, (pixel) => {
         pixel.style.backgroundColor = 'white';
     });
+});
+
+// Turns on eraser 
+eraser.addEventListener('mousedown', () => {
+    if(eraser.value == 'OFF'){
+        eraser.value = 'ON';
+        color = '#FFFFFF';
+    }
+    else if (eraser.value == 'ON'){
+        eraser.value = 'OFF';
+        color = document.getElementById('color').value;;
+    }
 });
 
 function generateGrid(){
@@ -36,7 +54,9 @@ function generateGrid(){
             row.appendChild(pixel);
             // When user mouses over pixel AND has their mouse down on canvas, set pixel to  black
             pixel.addEventListener('mouseover', () => {
-                if(brushOn) pixel.style.backgroundColor = color;
+                if(brushOn){
+                    pixel.style.backgroundColor = color;
+                }
             });
         }
         sketchbox.appendChild(row);
