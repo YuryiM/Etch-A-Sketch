@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/x-icon" href="android-chrome-192x192.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sketchy!</title>
 </head>
 <body>
     <div id="main-flexbox">
@@ -15,9 +16,12 @@
                 <div id="color-pick">
                     <input type="color" id="color" value="#000000">
                 </div>
-                <button id="rainbow-mode-toggle" value="OFF">Rainbow Toggle</button>
-                <button id="eraser-toggle" value="OFF">Eraser Toggle</button>
-                <button id="clear-button">Clear Canvas</button>
+                <div id="canvas-controls">
+                    <button id="eraser-toggle" value="OFF">Eraser Toggle</button>
+                    <button id="rainbow-mode-toggle" value="OFF">Rainbow Toggle</button>
+                    <button id="clear-button">Clear Canvas</button>
+                </div>
+                
                 <output id="canvas-size">16 x 16</output>
                 <input type="range" min="2" max="64" class="slider" id="size-slider" value="16">
             </div>
