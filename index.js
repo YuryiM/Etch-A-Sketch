@@ -17,7 +17,7 @@ let rainbowMode = false;
 // Current color, excluding rainbow mode
 let color = document.getElementById('color').value;
 // List of rainbow mode colors to cycle through
-const rainbowColors = ['#ff0000', '#ffa500', '#ffff00', '#008000', '#0000ff', '#4b0082', '#ee82ee'];
+const rainbowColors = ['#ff0000', '#ff8000', '#ffff00', '#80ff00', '#00ff00', '#00ff80', '#00ffff', '#0080ff', '#0000ff', '#8000ff', '#ff00ff', '#ff0080'];
 // Current rainbow mode color
 let r = 0;
 // Current rainbow color
