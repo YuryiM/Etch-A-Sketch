@@ -14,6 +14,8 @@ let rainbowButton = document.getElementById('rainbow-mode-toggle');
 
 let brushOn = false;
 
+let eraserOn = false;
+
 let rainbowMode = false;
 
 let color = document.getElementById('color').value;
@@ -28,6 +30,7 @@ document.getElementById('color').addEventListener('input', () => {
     color = document.getElementById('color').value;
     colorPicker.style.backgroundColor = color;
     rainbowMode = false;
+    eraserOn = false;
 });
 
 // Clears canvas
@@ -42,6 +45,7 @@ rainbowButton.addEventListener('mousedown', () => {
     if(rainbowButton.value == 'OFF'){
         rainbowButton.value = 'ON';
         rainbowMode = true;
+        eraserOn = false;
     }
     else if (rainbowButton.value == 'ON'){
         rainbowButton.value = 'OFF';
@@ -52,10 +56,11 @@ rainbowButton.addEventListener('mousedown', () => {
 // Turns on eraser 
 eraser.addEventListener('mousedown', () => {
     if(eraser.value == 'OFF'){
+        eraserOn = true;
         eraser.value = 'ON';
-        color = '#FFFFFF';
     }
     else if (eraser.value == 'ON'){
+        eraserOn = false;
         eraser.value = 'OFF';
         color = document.getElementById('color').value;;
     }
@@ -76,14 +81,19 @@ function generateGrid(){
             // When user mouses over pixel AND has their mouse down on canvas, set pixel to  black
             pixel.addEventListener('mouseover', () => {
                 if(brushOn){
-                    if(rainbowMode){
+                    // Precedence: Eraser > Rainbow > User Color
+                    if (eraserOn){
+                        pixel.style.backgroundColor = '#FFFFFF';
+                    }
+                    else if(rainbowMode){
                         pixel.style.backgroundColor = currentRainbowColor;
-                        if(r == rainbowColors.length-1) r = 0;
-                        else r++;
+                        // If on the last color in the array, loop back around
+                        (r == rainbowColors.length-1) ? r = 0 : r++;
                         currentRainbowColor = rainbowColors[r];
                         }
+                    
                     else {
-                    pixel.style.backgroundColor = color;
+                        pixel.style.backgroundColor = color;
                     }
                 }
             });
